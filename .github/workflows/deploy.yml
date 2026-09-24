@@ -35,14 +35,14 @@ jobs:
           role-to-assume: arn:aws:iam::678878256416:role/fatmiGithubActioncicdROLE
           aws-region: us-east-1
 
-      - name: login to Amazon ECR 
+      - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build Docker image
         run: docker build -t blackfri .
 
       - name: Tag Docker image
-        run: docker tag blackfri:latest
+        run: docker tag blackfri:latest 678878256416.dkr.ecr.us-east-1.amazonaws.com/black-friday-app:latest
 
       - name: Push Docker image
-        run: docker push 678878256416.dkr.ecr.us-east-1.amazonaws.com/black-friday-app:latest  
+        run: docker push 678878256416.dkr.ecr.us-east-1.amazonaws.com/black-friday-app:latest
