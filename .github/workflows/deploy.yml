@@ -39,7 +39,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build Docker image
-        run: docker build -t blackfri
+        run: docker build -t blackfri .
 
       - name: Tag Docker image
         run: docker tag blackfri:latest
