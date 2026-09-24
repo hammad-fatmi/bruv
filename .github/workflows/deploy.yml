@@ -42,7 +42,7 @@ jobs:
         run: docker build -t blackfri .
 
       - name: Tag Docker image
-        run: docker tag blackfri:latest 678878256416.dkr.ecr.us-east-1.amazonaws.com/blackfri:latest
+        run: docker tag blackfri:latest 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest
 
       - name: Push Docker image
-        run: docker push 678878256416.dkr.ecr.us-east-1.amazonaws.com/blackfri:latest
+        run: docker push 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest
