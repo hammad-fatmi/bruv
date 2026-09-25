@@ -58,8 +58,7 @@ jobs:
       - name: Staging Health Check 
         run: |
           aws ssm send-command \
-            --instance-ids i-0ab5437ccd84c8b71 \
+            --instance-ids i-0079d873fcc0b9b7c \
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=["curl -f http://localhost:3000/Health"]' \
             --region us-east-1
-             
