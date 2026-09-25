@@ -54,3 +54,12 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=["aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 678878256416.dkr.ecr.us-east-1.amazonaws.com","docker pull 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest","docker stop blackfri || true","docker rm blackfri || true","docker run -d --restart unless-stopped --name blackfri -p 3000:3000 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest"]' \
             --region us-east-1
+
+      - name: Staging Health Check 
+        run: |
+          aws ssm send-command \
+            --instance-ids i-0ab5437ccd84c8b71 \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["curl -f http://localhost:3000/Health"]' \
+            --region us-east-1
+             
