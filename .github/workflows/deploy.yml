@@ -66,7 +66,7 @@ jobs:
       - name: Deploy to Production
         run: |
           aws ssm send-command \
-            --instance-ids i-00ad667b6948eac66 \
+            --instance-ids i-0b1bb4fb4873a2c9c \
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
               "aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 678878256416.dkr.ecr.us-east-1.amazonaws.com",
