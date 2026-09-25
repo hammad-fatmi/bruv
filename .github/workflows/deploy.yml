@@ -50,7 +50,7 @@ jobs:
       - name: Deploy to Staging
         run: |
           aws ssm send-command \
-            --instance-ids i-0ab5437ccd84c8b71 \
+            --instance-ids i-0079d873fcc0b9b7c \   
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=["aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 678878256416.dkr.ecr.us-east-1.amazonaws.com","docker pull 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest","docker stop blackfri || true","docker rm blackfri || true","docker run -d --restart unless-stopped --name blackfri -p 3000:3000 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest"]' \
             --region us-east-1
