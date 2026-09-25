@@ -27,9 +27,9 @@ const html = [
 "</header>",
 "<h2>Today's Hot Deals</h2>",
 "<div class='products'>",
-"<div class='card'><h2>💻 Laptop</h2><p>High-performance laptop</p><div class='price'>$799</div><button>Buy Now</button></div>",
-"<div class='card'><h2>📱 Smartphone</h2><p>Latest smartphone</p><div class='price'>$499</div><button>Buy Now</button></div>",
-"<div class='card'><h2>🎧 Headphones</h2><p>Wireless headphones</p><div class='price'>$99</div><button>Buy Now</button></div>",
+"<div class='card'><h2>💻 Lap</h2><p>High-performance laptop</p><div class='price'>$799</div><button>Buy Now</button></div>",
+"<div class='card'><h2>📱 phone</h2><p>Latest smartphone</p><div class='price'>$499</div><button>Buy Now</button></div>",
+"<div class='card'><h2>🎧 Head ps</h2><p>Wireless headphones</p><div class='price'>$99</div><button>Buy Now</button></div>",
 "</div>",
 "</body>",
 "</html>"

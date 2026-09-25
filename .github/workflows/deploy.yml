@@ -62,3 +62,17 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=["curl -f http://localhost:3000/Health"]' \
             --region us-east-1
+      
+      - name: Deploy to Production
+        run: |
+          aws ssm send-command \
+            --instance-ids i-00ad667b6948eac66 \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=[
+              "aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin 678878256416.dkr.ecr.us-east-1.amazonaws.com",
+              "sudo docker pull 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest",
+              "sudo docker stop blackfri || true",
+              "sudo docker rm blackfri || true",
+              "sudo docker run -d --restart unless-stopped --name blackfri -p 3000:3000 678878256416.dkr.ecr.us-east-1.amazonaws.com/fatmirepo:latest"
+            ]' \
+            --region us-east-1
